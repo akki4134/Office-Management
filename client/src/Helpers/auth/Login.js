@@ -56,7 +56,7 @@ function Login() {
                     <TextField id="Password" label="Password" size="small" variant="outlined" />
                 </Grid>
                 <Grid className={classes.item}>
-                    <Button className={classes.button} >Login</Button>
+                    <Button className={classes.button} >Add</Button>
                 </Grid>
             </Grid>
         </div>

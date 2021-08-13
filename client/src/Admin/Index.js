@@ -154,9 +154,7 @@ function Index() {
                     <Tabs
                         className={classes.menu}
                         value={value}
-                        indicatorColor="#fff"
                         onChange={handleChange}
-                        textColor="#fff"
                         variant="scrollable"
                         scrollButtons="auto"
                         aria-label="scrollable auto tabs example"
@@ -170,10 +168,10 @@ function Index() {
                         />}
                         />
                         <Tab label="Home" onClick={() => history.push('/')} className={classes.tab} />
-                        <Tab label="" onClick={() => history.push('/')} className={classes.tab} />
-                        <Tab label="" onClick={() => history.push('/')} className={classes.tab} />
-                        <Tab label="" onClick={() => history.push('/')} className={classes.tab} />
-                        <Tab label="" onClick={() => history.push('/')} className={classes.tab} />
+                        <Tab label="Sales" onClick={() => history.push('/')} className={classes.tab} />
+                        <Tab label="Services" onClick={() => history.push('/')} className={classes.tab} />
+                        <Tab label="Products" onClick={() => history.push('/')} className={classes.tab} />
+                        <Tab label="Development" onClick={() => history.push('/')} className={classes.tab} />
                     </Tabs>
                 </Toolbar>
             </AppBar>
