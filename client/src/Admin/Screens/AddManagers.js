@@ -9,7 +9,7 @@ import {
 import ImageBackground from 'react'
 
 import {
-    FaUserPlus
+    FaUserEdit
 } from 'react-icons/fa'
 
 const useStyles = makeStyles((theme) => ({
@@ -29,8 +29,8 @@ const useStyles = makeStyles((theme) => ({
     },
     image: {
         border: 20,
-        width: 250,
-        height: 250,
+        width: 150,
+        height: 150,
         boxShadow: '0 3px 5px 2px rgba(255, 105, 135, .3)',
     },
 
@@ -98,7 +98,7 @@ function Managers() {
                     </Grid>
 
                     <Grid className={classes.item} >
-                        <TextField className={classes.textarea} id="Address" size="small" label="Address" variant="outlined" />
+                        <TextField className={classes.textarea} id="Address" size="medium" label="Address" variant="outlined" />
                     </Grid>
                     <Grid className={classes.item} item>
                         <Typography variant="body2">Display Image</Typography>
@@ -117,10 +117,12 @@ function Managers() {
                 </Grid>
                 <Grid className={classes.grid} >
                     <Grid className={classes.item} item>
-                        {/* <img className={classes.image} src={governamentid} alt='Governament Id'
+                        <img className={classes.image} src={governamentid} alt='Governament Id'
 
-                        /> */}
-
+                        />
+                        {/* <ImageBackground className={classes.image} src={governamentid}>
+                            <FaUserEdit />
+                        </ImageBackground> */}
 
                     </Grid>
                 </Grid>

@@ -4,7 +4,7 @@ import { Route, Switch, useHistory } from 'react-router-dom'
 import clsx from 'clsx';
 
 import adminDashboardScreen from './Dashbord'
-import adminManagersScreen from './Screens/Managers'
+import adminManagersScreen from './Screens/AddManagers'
 
 import {
     CssBaseline,
@@ -21,6 +21,7 @@ import {
     Divider,
     Tab,
     Typography,
+    IconButton,
 
 } from '@material-ui/core'
 
@@ -159,14 +160,18 @@ function Index() {
                         scrollButtons="auto"
                         aria-label="scrollable auto tabs example"
                     >
-                        <Tab icon={<GiHamburgerMenu size='2em'
+                        {/* <Tab icon={}
+                        /> */}
+                        <IconButton
                             color="inherit"
                             aria-label="open drawer"
                             onClick={handleDrawerOpen}
                             edge="start"
                             className={clsx(classes.menuButton, open && classes.hide)}
-                        />}
-                        />
+                        >
+                            <GiHamburgerMenu />
+                        </IconButton>
+
                         <Tab label="Home" onClick={() => history.push('/')} className={classes.tab} />
                         <Tab label="Sales" onClick={() => history.push('/')} className={classes.tab} />
                         <Tab label="Services" onClick={() => history.push('/')} className={classes.tab} />
