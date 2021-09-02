@@ -7,7 +7,7 @@ import ManagerRoutes from './Manager/Index'
 
 function App() {
 
-  const UserInfo = 'admin'
+  const UserInfo = 'manager'
 
   return (
     <Router>

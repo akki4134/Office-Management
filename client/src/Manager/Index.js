@@ -1,10 +1,10 @@
 import { useState } from 'react';
-import { Route, Switch } from 'react-router-dom'
+import { Route, Switch, useHistory } from 'react-router-dom'
 
 import clsx from 'clsx';
 
-import ManagerDashboardScreen from './Dashbord'
-//import NavBar from '../Helpers/components/Navigation'
+import DashboardScreen from './Dashbord'
+
 
 import {
     CssBaseline,
@@ -13,17 +13,29 @@ import {
     Toolbar,
     Drawer,
     useTheme,
-    MenuList,
-    MenuItem,
-
+    Tabs,
+    List,
+    ListItem,
+    ListItemText,
+    Collapse,
+    Divider,
+    Tab,
+    Typography,
+    IconButton,
 
 } from '@material-ui/core'
 
 import {
     GiHamburgerMenu,
-    GiFastBackwardButton,
-    GiFastForwardButton
 } from 'react-icons/gi'
+
+import {
+    CgCloseO
+} from 'react-icons/cg'
+import {
+    FaAngleDown,
+    FaAngleRight
+} from 'react-icons/fa'
 
 
 const drawerWidth = 240;
@@ -33,6 +45,7 @@ const useStyles = makeStyles((theme) => ({
         display: 'flex',
     },
     appBar: {
+        background: '#000',
         transition: theme.transitions.create(['margin', 'width'], {
             easing: theme.transitions.easing.sharp,
             duration: theme.transitions.duration.leavingScreen,
@@ -45,6 +58,15 @@ const useStyles = makeStyles((theme) => ({
             easing: theme.transitions.easing.easeOut,
             duration: theme.transitions.duration.enteringScreen,
         }),
+    },
+    menu: {
+        flexGrow: 1,
+        display: 'flex',
+        maxHeight: '100%',
+    },
+    list: {
+        marginLeft: 20
+
     },
     menuButton: {
         marginRight: theme.spacing(2),
@@ -62,7 +84,6 @@ const useStyles = makeStyles((theme) => ({
     drawerHeader: {
         display: 'flex',
         alignItems: 'center',
-        padding: theme.spacing(0, 1),
         // necessary for content to be below app bar
         ...theme.mixins.toolbar,
         justifyContent: 'flex-end',
@@ -74,24 +95,40 @@ const useStyles = makeStyles((theme) => ({
             easing: theme.transitions.easing.sharp,
             duration: theme.transitions.duration.leavingScreen,
         }),
-        marginLeft: -drawerWidth,
+        marginLeft: 0,
     },
     contentShift: {
         transition: theme.transitions.create('margin', {
             easing: theme.transitions.easing.easeOut,
             duration: theme.transitions.duration.enteringScreen,
         }),
-        marginLeft: 0,
+
+        marginLeft: drawerWidth,
+    },
+    nested: {
+        flexGrow: 1,
     },
 }));
-
-
 
 function Index() {
 
     const classes = useStyles();
     const theme = useTheme();
     const [open, setOpen] = useState(false);
+    const [value, setValue] = useState(0);
+
+    const history = useHistory()
+
+    const [customerlist, setCustomerlist] = useState(false);
+    const [managerlist, setManagerlist] = useState(false);
+
+    const handleCustomerClick = () => {
+        setCustomerlist(!customerlist);
+    };
+
+    const handleManagerClick = () => {
+        setManagerlist(!managerlist);
+    };
 
     const handleDrawerOpen = () => {
         setOpen(true);
@@ -99,6 +136,10 @@ function Index() {
 
     const handleDrawerClose = () => {
         setOpen(false);
+    };
+
+    const handleChange = (event, newValue) => {
+        setValue(newValue);
     };
 
     return (
@@ -111,15 +152,32 @@ function Index() {
                 })}
             >
                 <Toolbar>
-                    <MenuList className={classes.menu}>
-                        <GiHamburgerMenu size='2em'
+                    <Tabs
+                        className={classes.menu}
+                        value={value}
+                        onChange={handleChange}
+                        variant="scrollable"
+                        scrollButtons="auto"
+                        aria-label="scrollable auto tabs example"
+                    >
+                        {/* <Tab icon={}
+                        /> */}
+                        <IconButton
+                            color="inherit"
+                            aria-label="open drawer"
                             onClick={handleDrawerOpen}
-                        />
-                        <MenuItem>New Requests</MenuItem>
-                        <MenuItem>Customers</MenuItem>
-                        <MenuItem>Managers</MenuItem>
-                        <MenuItem>Employees</MenuItem>
-                    </MenuList>
+                            edge="start"
+                            className={clsx(classes.menuButton, open && classes.hide)}
+                        >
+                            <GiHamburgerMenu />
+                        </IconButton>
+
+                        <Tab label="Home" onClick={() => history.push('/')} className={classes.tab} />
+                        <Tab label="Sales" onClick={() => history.push('/')} className={classes.tab} />
+                        <Tab label="Services" onClick={() => history.push('/')} className={classes.tab} />
+                        <Tab label="Products" onClick={() => history.push('/')} className={classes.tab} />
+                        <Tab label="Development" onClick={() => history.push('/')} className={classes.tab} />
+                    </Tabs>
                 </Toolbar>
             </AppBar>
 
@@ -132,13 +190,55 @@ function Index() {
                     paper: classes.drawerPaper,
                 }}
             >
-                <div className={classes.drawerHeader}>
-                    <GiFastBackwardButton onClick={handleDrawerClose}>
-                        {theme.direction === 'ltr' ? <GiFastBackwardButton /> : <GiFastForwardButton />}
-                    </GiFastBackwardButton>
+                <div>
+                    <div className={classes.drawerHeader} onClick={handleDrawerClose}>
+                        <Typography variant="h4" style={{ marginRight: "40px" }} > Manager </Typography>
+                        {theme.direction === 'ltr' ? <CgCloseO size='2em' /> : <CgCloseO size='2em' />}
+                    </div>
                 </div>
-
-
+                <List>
+                    <Divider />
+                    <ListItem button onClick={handleCustomerClick}>
+                        <ListItemText primary="Customer Settings" />
+                        {customerlist ? <FaAngleDown /> : <FaAngleRight />}
+                    </ListItem>
+                    <Collapse in={customerlist} timeout="auto" unmountOnExit>
+                        <List className={classes.list} component="div" disablePadding>
+                            <ListItem button>
+                                <ListItemText primary="Add Customer" />
+                            </ListItem>
+                            <ListItem button>
+                                <ListItemText primary="List Customer" />
+                            </ListItem>
+                        </List>
+                    </Collapse>
+                    <Divider />
+                    <ListItem button onClick={handleManagerClick}>
+                        <ListItemText primary="Manager Settings" />
+                        {managerlist ? <FaAngleDown /> : <FaAngleRight />}
+                    </ListItem>
+                    <Collapse in={managerlist} timeout="auto" unmountOnExit>
+                        <List className={classes.list} component="div" disablePadding>
+                            <ListItem button
+                                onClick={() => {
+                                    handleDrawerClose()
+                                    handleManagerClick()
+                                    history.push('/admin/managers')
+                                }}>
+                                <ListItemText primary="Manager" />
+                            </ListItem>
+                            <ListItem button
+                                onClick={() => {
+                                    handleDrawerClose()
+                                    handleManagerClick()
+                                    history.push('/admin/managers')
+                                }}>
+                                <ListItemText primary="Empty" />
+                            </ListItem>
+                        </List>
+                    </Collapse>
+                    <Divider />
+                </List>
             </Drawer>
 
             <main
@@ -146,11 +246,13 @@ function Index() {
                     [classes.contentShift]: open,
                 })}
             >
+                <div className={classes.drawerHeader} />
                 <Switch>
-                    <Route path='/' exact component={ManagerDashboardScreen} />
+                    <Route path='/' exact component={DashboardScreen} />
                 </Switch>
+
             </main>
-        </div>
+        </div >
     )
 }
 
