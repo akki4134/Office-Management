@@ -4,9 +4,9 @@ import {
     Grid,
     makeStyles,
     TextField,
-    Typography,
+    //Typography,
+    IconButton,
 } from '@material-ui/core'
-import ImageBackground from 'react'
 
 import {
     FaUserEdit
@@ -27,11 +27,21 @@ const useStyles = makeStyles((theme) => ({
     item: {
         margin: 10,
     },
+    input: {
+        display: 'none',
+    },
     image: {
         border: 20,
+        borderRadius: 80,
         width: 150,
         height: 150,
-        boxShadow: '0 3px 5px 2px rgba(255, 105, 135, .3)',
+        boxShadow: '0 3px 5px 2px rgba(255, 255, 255, .1)',
+    },
+    imageicon: {
+        position: 'relative',
+        left: '50px',
+       
+
     },
 
     button: {
@@ -100,30 +110,29 @@ function Managers() {
                     <Grid className={classes.item} >
                         <TextField className={classes.textarea} id="Address" size="medium" label="Address" variant="outlined" />
                     </Grid>
-                    <Grid className={classes.item} item>
-                        <Typography variant="body2">Display Image</Typography>
-                        <input type="file" onChange={handleDpChange} />
-                    </Grid>
-                    <Grid className={classes.item} item>
-                        <Typography variant="body2">Governament ID</Typography>
-                        <input type="file" onChange={handleGidChange} />
-                    </Grid>
-                    <Button className={classes.button} >Create Manager</Button>
+
+                    <Button className={classes.button}>Create Manager</Button>
                 </Grid>
                 <Grid className={classes.grid} >
                     <Grid className={classes.item} item>
+                        <input accept="image/*" onChange={handleDpChange} className={classes.input} id="dp-icon-button-file" type="file" />
+                        <label htmlFor="dp-icon-button-file">
+                            <IconButton className={classes.imageicon} color="primary" aria-label="upload picture" component="span">
+                                <FaUserEdit />
+                            </IconButton>
+                        </label>
                         <img className={classes.image} src={profile} alt='Profile' />
                     </Grid>
                 </Grid>
                 <Grid className={classes.grid} >
                     <Grid className={classes.item} item>
-                        <img className={classes.image} src={governamentid} alt='Governament Id'
-
-                        />
-                        {/* <ImageBackground className={classes.image} src={governamentid}>
-                            <FaUserEdit />
-                        </ImageBackground> */}
-
+                        <input accept="image/*" onChange={handleGidChange} className={classes.input} id="id-icon-button-file" type="file" />
+                        <label htmlFor="id-icon-button-file">
+                            <IconButton className={classes.imageicon} color="primary" aria-label="upload picture" component="span">
+                                <FaUserEdit />
+                            </IconButton>
+                        </label>
+                        <img className={classes.image} src={governamentid} alt='Governament Id'></img>
                     </Grid>
                 </Grid>
             </Grid>
