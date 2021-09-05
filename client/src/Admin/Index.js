@@ -1,10 +1,10 @@
 import { useState } from 'react';
-import { Route, Switch, useHistory } from 'react-router-dom'
+import { useHistory } from 'react-router-dom'
 
+import RoutesAdmin from './RoutesAdmin';
 import clsx from 'clsx';
 
-import adminDashboardScreen from './Dashbord'
-import adminManagersScreen from './Screens/AddManagers'
+
 
 import {
     CssBaseline,
@@ -120,10 +120,14 @@ function Index() {
     const history = useHistory()
 
     const [customerlist, setCustomerlist] = useState(false);
+    const [employeelist, setEmployeelist] = useState(false);
     const [managerlist, setManagerlist] = useState(false);
 
     const handleCustomerClick = () => {
         setCustomerlist(!customerlist);
+    };
+    const handleEmployeeClick = () => {
+        setEmployeelist(!employeelist);
     };
 
     const handleManagerClick = () => {
@@ -169,7 +173,7 @@ function Index() {
                             edge="start"
                             className={clsx(classes.menuButton, open && classes.hide)}
                         >
-                            <GiHamburgerMenu />
+                            <GiHamburgerMenu size='1.5em' />
                         </IconButton>
 
                         <Tab label="Home" onClick={() => history.push('/')} className={classes.tab} />
@@ -205,10 +209,25 @@ function Index() {
                     <Collapse in={customerlist} timeout="auto" unmountOnExit>
                         <List className={classes.list} component="div" disablePadding>
                             <ListItem button>
-                                <ListItemText primary="Add Customer" />
+                                <ListItemText primary="Empty" />
                             </ListItem>
                             <ListItem button>
-                                <ListItemText primary="List Customer" />
+                                <ListItemText primary="List Customers" />
+                            </ListItem>
+                        </List>
+                    </Collapse>
+                    <Divider />
+                    <ListItem button onClick={handleEmployeeClick}>
+                        <ListItemText primary="Employee Settings" />
+                        {employeelist ? <FaAngleDown /> : <FaAngleRight />}
+                    </ListItem>
+                    <Collapse in={employeelist} timeout="auto" unmountOnExit>
+                        <List className={classes.list} component="div" disablePadding>
+                            <ListItem button>
+                                <ListItemText primary="Add Employee" />
+                            </ListItem>
+                            <ListItem button>
+                                <ListItemText primary="List Employees" />
                             </ListItem>
                         </List>
                     </Collapse>
@@ -221,19 +240,15 @@ function Index() {
                         <List className={classes.list} component="div" disablePadding>
                             <ListItem button
                                 onClick={() => {
-                                    handleDrawerClose()
-                                    handleManagerClick()
-                                    history.push('/admin/managers')
+                                    history.push('/admin/addmanager')
                                 }}>
-                                <ListItemText primary="Manager" />
+                                <ListItemText primary="Add Manager" />
                             </ListItem>
                             <ListItem button
                                 onClick={() => {
-                                    handleDrawerClose()
-                                    handleManagerClick()
                                     history.push('/admin/managers')
                                 }}>
-                                <ListItemText primary="Empty" />
+                                <ListItemText primary="List Managers" />
                             </ListItem>
                         </List>
                     </Collapse>
@@ -247,10 +262,7 @@ function Index() {
                 })}
             >
                 <div className={classes.drawerHeader} />
-                <Switch>
-                    <Route path='/' exact component={adminDashboardScreen} />
-                    <Route path='/admin/managers' exact component={adminManagersScreen} />
-                </Switch>
+                <RoutesAdmin />
 
             </main>
         </div >

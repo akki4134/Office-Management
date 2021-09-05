@@ -58,7 +58,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 
-function Managers() {
+function AddManager() {
     const classes = useStyles();
     const [profile, setProfile] = useState('https://www.pngitem.com/pimgs/m/150-1503945_transparent-user-png-default-user-image-png-png.png')
     const [governamentid, setGovernamentid] = useState('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTSD6NMvOb7RJk0i5B5yIgFHSan6zKplhnja3v7tg-QYHafUfDvqLy8FFxvAKLIWJVEjwM&usqp=CAU')
@@ -142,4 +142,4 @@ function Managers() {
     )
 }
 
-export default Managers
+export default AddManager

@@ -4,6 +4,7 @@ import LoginScreen from './Helpers/auth/Login'
 
 import AdminRoutes from './Admin/Index'
 import ManagerRoutes from './Manager/Index'
+import EmployeeRoutes from './Employee/Index'
 
 function App() {
 
@@ -24,6 +25,12 @@ function App() {
             return (
               <div>
                 <ManagerRoutes />
+              </div>
+            )
+          case 'employee':
+            return (
+              <div>
+                <EmployeeRoutes />
               </div>
             )
           default:
