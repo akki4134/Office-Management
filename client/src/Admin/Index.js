@@ -156,6 +156,15 @@ function Index() {
                 })}
             >
                 <Toolbar>
+                    <IconButton
+                        color="inherit"
+                        aria-label="open drawer"
+                        onClick={handleDrawerOpen}
+                        edge="start"
+                        className={clsx(classes.menuButton, open && classes.hide)}
+                    >
+                        <GiHamburgerMenu size='1.2em' />
+                    </IconButton>
                     <Tabs
                         className={classes.menu}
                         value={value}
@@ -164,18 +173,6 @@ function Index() {
                         scrollButtons="auto"
                         aria-label="scrollable auto tabs example"
                     >
-                        {/* <Tab icon={}
-                        /> */}
-                        <IconButton
-                            color="inherit"
-                            aria-label="open drawer"
-                            onClick={handleDrawerOpen}
-                            edge="start"
-                            className={clsx(classes.menuButton, open && classes.hide)}
-                        >
-                            <GiHamburgerMenu size='1.5em' />
-                        </IconButton>
-
                         <Tab label="Home" onClick={() => history.push('/')} className={classes.tab} />
                         <Tab label="Sales" onClick={() => history.push('/')} className={classes.tab} />
                         <Tab label="Services" onClick={() => history.push('/')} className={classes.tab} />
@@ -196,8 +193,9 @@ function Index() {
             >
                 <div>
                     <div className={classes.drawerHeader} onClick={handleDrawerClose}>
-                        <Typography variant="h4" style={{ marginRight: "40px" }} > Admin </Typography>
-                        {theme.direction === 'ltr' ? <CgCloseO size='2em' /> : <CgCloseO size='2em' />}
+
+                        <Typography style={{ marginRight: "50px" }} variant="h4"  > Admin </Typography>
+                        {theme.direction === 'ltr' ? <CgCloseO size='1.8em' style={{ marginRight: "20px" }} /> : <CgCloseO size='1.8em' />}
                     </div>
                 </div>
                 <List>
@@ -263,7 +261,6 @@ function Index() {
             >
                 <div className={classes.drawerHeader} />
                 <RoutesAdmin />
-
             </main>
         </div >
     )
