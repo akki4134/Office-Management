@@ -139,7 +139,6 @@ const useStyles = makeStyles({
 
 export default function StickyHeadTable() {
     const classes = useStyles();
-
     const history = useHistory()
 
     //   const [page, setPage] = React.useState(0);
@@ -189,7 +188,6 @@ export default function StickyHeadTable() {
                                                 );
                                             })}
                                         </TableRow>
-
                                     </>
                                 );
                             })}

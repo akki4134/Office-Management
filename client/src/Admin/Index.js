@@ -123,6 +123,8 @@ function Index() {
     const [employeelist, setEmployeelist] = useState(false);
     const [managerlist, setManagerlist] = useState(false);
 
+    const [leaverequestlist, setLeaveRequestlist] = useState(false);
+
     const handleCustomerClick = () => {
         setCustomerlist(!customerlist);
     };
@@ -133,6 +135,14 @@ function Index() {
     const handleManagerClick = () => {
         setManagerlist(!managerlist);
     };
+
+    const handleLeaveRequestClick = () => {
+        setLeaveRequestlist(!leaverequestlist);
+    };
+
+
+
+
 
     const handleDrawerOpen = () => {
         setOpen(true);
@@ -256,7 +266,30 @@ function Index() {
                     </Collapse>
 
                     <Divider />
-                    
+
+                    <ListItem button onClick={handleLeaveRequestClick}>
+                        <ListItemText primary="Leave Requests" />
+                        {leaverequestlist ? <FaAngleDown /> : <FaAngleRight />}
+                    </ListItem>
+                    <Collapse in={leaverequestlist} timeout="auto" unmountOnExit>
+                        <List className={classes.list} component="div" disablePadding>
+                            <ListItem button
+                                onClick={() => {
+                                    history.push('/admin/')
+                                }}>
+                                <ListItemText primary="Assign Leaves" />
+                            </ListItem>
+                            <ListItem button
+                                onClick={() => {
+                                    history.push('/admin/')
+                                }}>
+                                <ListItemText primary="Leave Requests" />
+                            </ListItem>
+                        </List>
+                    </Collapse>
+
+                    <Divider />
+
                 </List>
             </Drawer>
 

@@ -1,30 +1,50 @@
-import {
-  makeStyles
-} from '@material-ui/core'
+import React from 'react';
+import { makeStyles } from '@material-ui/core/styles';
+import Paper from '@material-ui/core/Paper';
+import Grid from '@material-ui/core/Grid';
 
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
   },
+  paper: {
+    padding: theme.spacing(2),
+    textAlign: 'center',
+    color: theme.palette.text.secondary,
+  },
 }));
 
-function Dashbord() {
+export default function Dashboard() {
   const classes = useStyles();
-    return (
-        <div className={classes.root}>
-          Admin Dashboard
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-          ut labore et dolore magna aliqua. Rhoncus dolor purus non enim praesent elementum
-          facilisis leo vel. Risus at ultrices mi tempus imperdiet. Semper risus in hendrerit
-          gravida rutrum quisque non tellus. Convallis convallis tellus id interdum velit laoreet id
-          donec ultrices. Odio morbi quis commodo odio aenean sed adipiscing. Amet nisl suscipit
-          adipiscing bibendum est ultricies integer quis. Cursus euismod quis viverra nibh cras.
-          Metus vulputate eu scelerisque felis imperdiet proin fermentum leo. Mauris commodo quis
-          imperdiet massa tincidunt. Cras tincidunt lobortis feugiat vivamus at augue. At augue eget
-          arcu dictum varius duis at consectetur lorem. Velit sed ullamcorper morbi tincidunt. Lorem
-          donec massa sapien faucibus et molestie ac.
-        </div>
-    )
+
+  return (
+    <div className={classes.root}>
+      <Grid container spacing={3}>
+        <Grid item xs>
+          <Paper className={classes.paper}>xs</Paper>
+        </Grid>
+        <Grid item xs>
+          <Paper className={classes.paper}>xs</Paper>
+        </Grid>
+        <Grid item xs>
+          <Paper className={classes.paper}>xs</Paper>
+        </Grid>
+        <Grid item xs>
+          <Paper className={classes.paper}>xs</Paper>
+        </Grid>
+      </Grid>
+      <Grid container spacing={3}>
+        <Grid item xs>
+          <Paper className={classes.paper}>xs</Paper>
+        </Grid>
+        <Grid item xs={6}>
+          <Paper className={classes.paper}>xs=6</Paper>
+        </Grid>
+        <Grid item xs>
+          <Paper className={classes.paper}>xs</Paper>
+        </Grid>
+      </Grid>
+    </div>
+  );
 }
 
-export default Dashbord
