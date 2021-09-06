@@ -1,3 +1,8 @@
+
+
+import { useHistory } from 'react-router-dom'
+
+
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
@@ -9,6 +14,9 @@ import TableHead from '@material-ui/core/TableHead';
 // import TablePagination from '@material-ui/core/TablePagination';
 import TableRow from '@material-ui/core/TableRow';
 import { Button } from '@material-ui/core';
+
+
+
 
 
 const columns = [
@@ -116,10 +124,24 @@ const useStyles = makeStyles({
     container: {
         maxHeight: 400,
     },
+    button: {
+        margin: 10,
+        background: 'linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)',
+        borderRadius: 3,
+        border: 0,
+        width: 150,
+        height: 40,
+        color: 'white',
+        padding: '0 30px',
+        boxShadow: '0 3px 5px 2px rgba(255, 105, 135, .3)',
+    }
 });
 
 export default function StickyHeadTable() {
     const classes = useStyles();
+
+    const history = useHistory()
+
     //   const [page, setPage] = React.useState(0);
     //   const [rowsPerPage, setRowsPerPage] = React.useState(10);
 
@@ -134,7 +156,7 @@ export default function StickyHeadTable() {
 
     return (
         <>
-            <Button> Add </Button>
+            <Button className={classes.button} onClick={() => history.push('/admin/addmanager')}>Add Manager</Button>
             <Paper className={classes.root}>
 
                 <TableContainer className={classes.container}>

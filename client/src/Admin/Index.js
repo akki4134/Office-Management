@@ -214,7 +214,9 @@ function Index() {
                             </ListItem>
                         </List>
                     </Collapse>
+
                     <Divider />
+
                     <ListItem button onClick={handleEmployeeClick}>
                         <ListItemText primary="Employee Settings" />
                         {employeelist ? <FaAngleDown /> : <FaAngleRight />}
@@ -229,7 +231,9 @@ function Index() {
                             </ListItem>
                         </List>
                     </Collapse>
+
                     <Divider />
+
                     <ListItem button onClick={handleManagerClick}>
                         <ListItemText primary="Manager Settings" />
                         {managerlist ? <FaAngleDown /> : <FaAngleRight />}
@@ -250,7 +254,9 @@ function Index() {
                             </ListItem>
                         </List>
                     </Collapse>
+
                     <Divider />
+                    
                 </List>
             </Drawer>
 
