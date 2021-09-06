@@ -40,8 +40,9 @@ const useStyles = makeStyles((theme) => ({
     imageicon: {
         position: 'relative',
         left: '50px',
-       
-
+        background: 'white',
+        border: 'solid',
+        borderWidth: '20px solid black'
     },
 
     button: {
@@ -118,7 +119,8 @@ function AddManager() {
                         <input accept="image/*" onChange={handleDpChange} className={classes.input} id="dp-icon-button-file" type="file" />
                         <label htmlFor="dp-icon-button-file">
                             <IconButton className={classes.imageicon} color="primary" aria-label="upload picture" component="span">
-                                <FaUserEdit />
+                                <FaUserEdit size='0.6em' />
+                                
                             </IconButton>
                         </label>
                         <img className={classes.image} src={profile} alt='Profile' />
@@ -129,7 +131,7 @@ function AddManager() {
                         <input accept="image/*" onChange={handleGidChange} className={classes.input} id="id-icon-button-file" type="file" />
                         <label htmlFor="id-icon-button-file">
                             <IconButton className={classes.imageicon} color="primary" aria-label="upload picture" component="span">
-                                <FaUserEdit />
+                                <FaUserEdit size='0.6em' />
                             </IconButton>
                         </label>
                         <img className={classes.image} src={governamentid} alt='Governament Id'></img>
