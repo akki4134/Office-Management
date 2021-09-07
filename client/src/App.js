@@ -8,7 +8,7 @@ import EmployeeRoutes from './Employee/Index'
 
 function App() {
 
-  const UserInfo = 'admin'
+  const UserInfo = 'aa'
 
   return (
     <Router>

@@ -6,8 +6,6 @@ import RoutesSales from '../Departments/Sales/RoutesSales';
 
 import clsx from 'clsx';
 
-
-
 import {
     CssBaseline,
     makeStyles,
@@ -141,10 +139,6 @@ function Index() {
     const handleLeaveRequestClick = () => {
         setLeaveRequestlist(!leaverequestlist);
     };
-
-
-
-
 
     const handleDrawerOpen = () => {
         setOpen(true);
