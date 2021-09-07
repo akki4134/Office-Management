@@ -2,6 +2,8 @@ import { useState } from 'react';
 import { useHistory } from 'react-router-dom'
 
 import RoutesAdmin from './RoutesAdmin';
+import RoutesSales from '../Departments/Sales/RoutesSales';
+
 import clsx from 'clsx';
 
 
@@ -184,7 +186,7 @@ function Index() {
                         aria-label="scrollable auto tabs example"
                     >
                         <Tab label="Home" onClick={() => history.push('/')} className={classes.tab} />
-                        <Tab label="Sales" onClick={() => history.push('/')} className={classes.tab} />
+                        <Tab label="Sales" onClick={() => history.push('/sales/dashboard')} className={classes.tab} />
                         <Tab label="Services" onClick={() => history.push('/')} className={classes.tab} />
                         <Tab label="Products" onClick={() => history.push('/')} className={classes.tab} />
                         <Tab label="Development" onClick={() => history.push('/')} className={classes.tab} />
@@ -300,6 +302,7 @@ function Index() {
             >
                 <div className={classes.drawerHeader} />
                 <RoutesAdmin />
+                <RoutesSales />
             </main>
         </div >
     )
