@@ -254,7 +254,7 @@ function Index() {
                             </ListItem>
                             <ListItem button
                                 onClick={() => {
-                                    history.push('/admin/managers')
+                                    history.push('/admin/managemanagers')
                                 }}>
                                 <ListItemText primary="List Managers" />
                             </ListItem>

@@ -267,3 +267,17 @@
 //         </div>
 //     );
 // }
+
+import React from 'react'
+
+function ListManagers() {
+    return (
+        <div>
+            table 
+            manager list
+            
+        </div>
+    )
+}
+
+export default ListManagers

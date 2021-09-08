@@ -120,7 +120,6 @@ function AddManager() {
                         <label htmlFor="dp-icon-button-file">
                             <IconButton className={classes.imageicon} color="primary" aria-label="upload picture" component="span">
                                 <FaUserEdit size='0.6em' />
-                                
                             </IconButton>
                         </label>
                         <img className={classes.image} src={profile} alt='Profile' />
@@ -138,8 +137,6 @@ function AddManager() {
                     </Grid>
                 </Grid>
             </Grid>
-
-
         </div>
     )
 }

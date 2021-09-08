@@ -8,11 +8,10 @@ import EmployeeRoutes from './Employee/Index'
 
 function App() {
 
-  const UserInfo = 'aa'
+  const UserInfo = 'employee'
 
   return (
     <Router>
-
       {(() => {
         switch (UserInfo) {
           case 'admin':
@@ -41,7 +40,6 @@ function App() {
             )
         }
       })()}
-
     </Router>
   )
 }

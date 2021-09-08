@@ -15,11 +15,13 @@ const useStyles = makeStyles((theme) => ({
         overflow: 'hidden',
         alignItems: 'center',
         justifyContent: 'center',
+        background:'linear-gradient(62deg, #8EC5FC 0%, #E0C3FC 100%)'
     },
     form: {
         padding: 10,
-        borderRadius: 5,
-        border: "1px solid grey",
+        borderRadius: 10,
+       // border: "1px solid grey",
+        background:'linear-gradient(to right, #c9d6ff, #e2e2e2)'
     },
     item: {
         margin: 10,
@@ -41,7 +43,7 @@ const useStyles = makeStyles((theme) => ({
     h2: {
         fontSize: '40px',
         fontWeight: 800,
-
+        color:'#6190e8'
     }
 }));
 
@@ -50,14 +52,11 @@ function Login() {
     const classes = useStyles();
 
     return (
-
         <div className={classes.root}>
-
             <Grid className={classes.form} >
                 <Grid className={classes.item}>
                     <Typography className={classes.h2}>AIS Tech</Typography>
                 </Grid>
-
                 <Grid className={classes.item}>
                     <TextField id="Email" label="Email" size="small" variant="outlined" />
                 </Grid>

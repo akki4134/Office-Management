@@ -12,7 +12,7 @@ function RoutesAdmin() {
                 <Route path='/' exact component={adminDashboardScreen} />
 
                 <Route path='/admin/addmanager' exact component={adminAddManagersScreen} />
-                <Route path='/admin/managers' exact component={adminListManagersScreen} />
+                <Route path='/admin/managemanagers' exact component={adminListManagersScreen} />
             </Switch>
         </div>
     )
