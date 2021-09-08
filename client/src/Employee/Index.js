@@ -3,14 +3,12 @@ import { useHistory } from 'react-router-dom'
 
 import RoutesEmployee from './RoutesEmployee';
 
-
 import clsx from 'clsx';
 
 import {
     CssBaseline,
     makeStyles,
     Drawer,
-
     List,
     ListItem,
     ListItemText,
@@ -18,7 +16,6 @@ import {
     Divider,
     Typography,
     //IconButton,
-
 } from '@material-ui/core'
 
 import {
@@ -33,12 +30,9 @@ const useStyles = makeStyles((theme) => ({
     root: {
         display: 'flex',
     },
-
     list: {
-        marginLeft: 20
-
+        flexGrow: 1,
     },
-
     drawer: {
         width: drawerWidth,
         flexShrink: 0,
@@ -214,12 +208,11 @@ export default function Index() {
 
                     <Divider />
 
+
                 </List>
 
 
-                <ListItem button className={classes.list}>
-                    <ListItemText primary="Settings" />
-                </ListItem>
+
             </Drawer>
 
             <main
@@ -229,6 +222,10 @@ export default function Index() {
             >
                 <RoutesEmployee />
             </main>
+
+            <ListItem button className={classes.list}>
+                <ListItemText primary="Settingssssssssssssssssssssssssssssssssssssss" />
+            </ListItem>
         </div >
     )
 }
