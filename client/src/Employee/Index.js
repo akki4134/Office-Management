@@ -20,8 +20,12 @@ import {
 
 import {
     FaAngleDown,
-    FaAngleRight
+    FaAngleRight,
+    FaTools,
 } from 'react-icons/fa'
+import {
+    RiDashboardLine
+} from 'react-icons/ri'
 
 
 const drawerWidth = 240;
@@ -31,13 +35,25 @@ const useStyles = makeStyles((theme) => ({
         display: 'flex',
     },
     list: {
-        flexGrow: 1,
+        marginLeft: 20
+    },
+    headlist: {
+        height: '90%'
+    },
+    bottomlist: {
+        position: 'fixed',
+        bottom: '2%',
+        width: drawerWidth,
+        flexShrink: 0,
+        border: '2px solid black'
     },
     drawer: {
         width: drawerWidth,
         flexShrink: 0,
+        height: '90%',
     },
     drawerPaper: {
+        height: '90%',
         width: drawerWidth,
     },
     drawerHeader: {
@@ -46,6 +62,7 @@ const useStyles = makeStyles((theme) => ({
         // necessary for content to be below app bar
         ...theme.mixins.toolbar,
         justifyContent: 'flex-end',
+
     },
     content: {
         flexGrow: 1,
@@ -73,7 +90,6 @@ export default function Index() {
 
     const [customerlist, setCustomerlist] = useState(false);
 
-
     const handleCustomerClick = () => {
         setCustomerlist(!customerlist);
     };
@@ -94,14 +110,16 @@ export default function Index() {
                 <div>
 
                     <div className={classes.drawerHeader}   >
-                        <Typography style={{ marginRight: "30px" }} variant="h4"  > Admin </Typography>
+                        <Typography style={{ marginRight: "30px" }} variant="h4"  > Employee </Typography>
                     </div>
 
                 </div>
-                <List>
+                <List className={classes.headlist}>
+
                     <Divider />
 
                     <ListItem button onClick={() => history.push('/')}   >
+                        <RiDashboardLine size=''/>
                         <ListItemText primary="Dashboard" />
                     </ListItem>
 
@@ -174,6 +192,7 @@ export default function Index() {
                     </Collapse>
 
                     <Divider />
+
                     <ListItem button onClick={handleCustomerClick}>
                         <ListItemText primary="Work Calender" />
                         {customerlist ? <FaAngleDown /> : <FaAngleRight />}
@@ -209,10 +228,13 @@ export default function Index() {
                     <Divider />
 
 
+
+                    <ListItem button className={classes.bottomlist} onClick={() => history.push('/')} >
+                        <FaTools size='1.5em' />
+                        <ListItemText className={classes.list} primary="Settings" />
+                    </ListItem>
+
                 </List>
-
-
-
             </Drawer>
 
             <main
@@ -223,9 +245,9 @@ export default function Index() {
                 <RoutesEmployee />
             </main>
 
-            <ListItem button className={classes.list}>
-                <ListItemText primary="Settingssssssssssssssssssssssssssssssssssssss" />
-            </ListItem>
+
+
+
         </div >
     )
 }
