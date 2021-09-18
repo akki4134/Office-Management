@@ -115,9 +115,7 @@ export default function Index() {
 
                 </div>
                 <List className={classes.headlist}>
-
                     <Divider />
-
                     <ListItem button onClick={() => history.push('/')}   >
                         <RiDashboardLine size=''/>
                         <ListItemText primary="Dashboard" />

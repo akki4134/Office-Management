@@ -297,6 +297,7 @@ function Index() {
                 <RoutesAdmin />
                 <RoutesSales />
             </main>
+            
         </div >
     )
 }

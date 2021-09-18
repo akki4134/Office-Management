@@ -4,7 +4,6 @@ function EmpDashboard() {
     return (
         <div>
             Dashboard
-            
         </div>
     )
 }
